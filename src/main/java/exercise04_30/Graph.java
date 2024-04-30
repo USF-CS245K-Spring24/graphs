@@ -123,8 +123,8 @@ public class Graph {
         g.addEdge(4, edge47);
 
         // edge going out of 7
-        Edge edge75 = new Edge(5);
-        g.addEdge(7, edge75);
+        //Edge edge75 = new Edge(5);
+        //g.addEdge(7, edge75);
         int[] finishTimes = g.dfsMain();
         int[] ordering = g.topologicalSort(finishTimes);
         System.out.println("Topological sort: " + Arrays.toString(ordering));
