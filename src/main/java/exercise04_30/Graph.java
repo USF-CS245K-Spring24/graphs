@@ -80,15 +80,32 @@ public class Graph {
     }
 
     public int[] topologicalSort(int[] finish) {
-        int[] ordering = new int[finish.length];
-        int index = 0;
-        for (int i = ordering.length - 1; i >= 0; i--) {
-            ordering[index] = finish[i];
-            index++;
+        IdWithFinishTime[] vertexDataArr = new IdWithFinishTime[graph.length];
+        for (int i = 0; i < finish.length; i++) {
+            IdWithFinishTime obj = new IdWithFinishTime(i, finish[i]);
+            vertexDataArr[i] = obj;
         }
-        return ordering;
+
+        // FILL IN CODE
+
+        return null;
     }
 
+
+    private class IdWithFinishTime implements Comparable<IdWithFinishTime> {
+        int id;
+        int finishTime;
+
+        IdWithFinishTime(int id, int finishTime) {
+            this.id = id;
+            this.finishTime = finishTime;
+        }
+
+       @Override
+        public int compareTo(IdWithFinishTime o) {
+            return o.finishTime - finishTime;
+        }
+    }
 
 
     public static void main(String[] args) {
@@ -128,7 +145,6 @@ public class Graph {
         int[] finishTimes = g.dfsMain();
         int[] ordering = g.topologicalSort(finishTimes);
         System.out.println("Topological sort: " + Arrays.toString(ordering));
-
     }
 }
 
